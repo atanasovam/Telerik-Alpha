@@ -3,33 +3,39 @@ const returnedObj = tests();
 const gets = returnedObj.gets;
 const print = returnedObj.print;
 
-const generateNextPermutation = () => {
-    const generatePermutations = (n, index, used, permutation, allPerms) => {
-        if (index === n) {
-            allPerms.push([...permutation].join(' ').toString());
-            return;
-        }
+const nextPermutation = (array) => {
+    // Find non-increasing suffix
+    let i = array.length - 1;
+    while (i > 0 && array[i - 1] >= array[i]) {
+        i--;
+    }
+    if (i <= 0) {
+        return false;
+    }
 
-        for (let i = 0; i < n; i += 1) {
-            if (used[i]) {
-                continue;
-            }
+    // Find successor to pivot
+    let j = array.length - 1;
+    while (array[j] <= array[i - 1]) {
+        j--;
+    }
+    let temp = array[i - 1];
+    array[i - 1] = array[j];
+    array[j] = temp;
 
-            permutation[index] = i + 1;
-            used[i] = true;
-            generatePermutations(n, index + 1, used, permutation, allPerms);
-            used[i] = false;
-        }
-    };
-
-    const [n, currentPermutation] = [+gets(), gets()];
-    const used = Array.from({ length: n });
-    const permutation = Array.from({ length: n });
-    const allPerms = [];
-
-    generatePermutations(n, 0, used, permutation, allPerms);
-
-    const indexOfCurrentPerm = allPerms.indexOf(currentPermutation);
-    print(allPerms[indexOfCurrentPerm + 1]);
+    // Reverse suffix
+    j = array.length - 1;
+    while (i < j) {
+        temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+        i++;
+        j--;
+    }
+    return true;
 };
-generateNextPermutation();
+
+const [n, perm] = [+gets(), gets().split(' ').map(Number)];
+nextPermutation(perm);
+
+print(perm.join(' '));
+// quit(0);

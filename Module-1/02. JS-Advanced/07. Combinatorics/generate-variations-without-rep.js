@@ -3,6 +3,7 @@ const returnedObj = tests();
 const gets = returnedObj.gets;
 const print = returnedObj.print;
 
+// without 'used' -> variations with repetitions
 const printAllVariations = () => {
     const generateVariations = (n, k, index, variation, used, allVariations) => {
         if (index === k) {
