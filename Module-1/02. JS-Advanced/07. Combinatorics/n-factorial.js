@@ -4,16 +4,45 @@ const gets = returnedObj.gets;
 const print = returnedObj.print;
 
 const printFactorial = () => {
-    const factorial = (num) => {
-        if (num === 0) {
-            return 1;
+    const multiply = (a, b) => {
+        if (+a === 0 || +b === 0) {
+            return '0';
         }
-        return factorial(num - 1) * num;
+
+        a = a.split('').reverse();
+        b = b.split('').reverse();
+        const result = [];
+
+        for (let i = 0; a[i] >= 0; i++) {
+            for (let j = 0; b[j] >= 0; j++) {
+                if (!result[i + j]) {
+                    result[i + j] = 0;
+                }
+
+                result[i + j] += a[i] * b[j];
+            }
+        }
+
+        for (let i = 0; result[i] >= 0; i++) {
+            if (result[i] >= 10) {
+                if (!result[i + 1]) {
+                    result[i + 1] = 0;
+                }
+
+                result[i + 1] += (result[i] / 10)|0;
+                result[i] %= 10;
+            }
+        }
+
+        return result.reverse().join('');
     };
 
     const n = +gets();
+    let result = '1';
 
-    const result = factorial(n);
-    print(parseInt(result));
+    for (let i = 1; i <= n; i += 1) {
+        result = multiply(result, i.toString());
+    }
+    print(result);
 };
 printFactorial();

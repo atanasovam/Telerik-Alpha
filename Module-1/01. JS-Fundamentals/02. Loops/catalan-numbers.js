@@ -3,17 +3,15 @@ const returnedObj = tests();
 const gets = returnedObj.gets;
 const print = returnedObj.print;
 
-const catalanNumbers = () => {
-    const factorial = (num) => {
-        if (num === 0) {
-            return 1;
-        }
-        return factorial(num - 1) * num;
-    };
-    const n = +gets();
-    const catalanN = factorial(2 * n) / (factorial(n + 1) * factorial(n));
-    // const catalanN = (1 / (n + 1)) * ((2 * n) / n);
+const catalanNumbers = (n) => {
+    if (n === 0) {
+        return 1;
+    }
 
-    print(catalanN);
+    return (4 * n - 2) * catalanNumbers(n - 1) / (n + 1);
 };
-catalanNumbers();
+
+const n = +gets();
+
+print(catalanNumbers(n));
+

@@ -69,8 +69,7 @@ const hexToBin = () => {
     for (let i = 0; i < hex.length; i += 1) {
         binary += dict[hex[i]];
     }
-    binary.replace(/^0+(?!\.|$)/, '');
-    print(binary);
+    print(binary.replace(/^0+(?!\.|$)/, ''));
     // print('000110100010101100111100010011010101111001101111');
 };
 hexToBin();
