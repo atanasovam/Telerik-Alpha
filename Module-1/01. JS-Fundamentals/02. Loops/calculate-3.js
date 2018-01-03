@@ -10,14 +10,17 @@ const calculate = () => {
         if (num === 0) {
             return 1;
         }
-        return factorial(num - 1) * num;
+        return num * factorial(num - 1);
     };
 
     const n = +gets();
     const k = +gets();
 
-    const result = factorial(n) / (factorial(k) * (factorial(n - k)));
+    let result = 0;
+    for (let i = 0; i <= n; i += 1) {
+        result += (factorial(i)) / (k ** i);
+    }
 
-    print(result);
+    print(result.toFixed());
 };
 calculate();

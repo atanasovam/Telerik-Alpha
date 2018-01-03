@@ -28,4 +28,3 @@ const findGoodNumbers = () => {
     print(result);
 };
 findGoodNumbers();
-// quit(0);
