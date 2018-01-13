@@ -3,7 +3,6 @@ const returnedObj = tests();
 const gets = returnedObj.gets;
 const print = returnedObj.print;
 
-
 const bestPrime = (args) => {
     const isPrime = (number) => {
         const n = Math.sqrt(number);
