@@ -11,5 +11,4 @@ class Stack {
         return this._arr.pop();
     }
 }
-
-const stack = new Stack();
+module.exports = Stack;
