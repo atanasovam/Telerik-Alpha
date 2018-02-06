@@ -3,7 +3,7 @@ const returnedObj = tests();
 const gets = returnedObj.gets;
 const print = returnedObj.print;
 
-const sum = () => {
+const sum = (() => {
     const add = (a, b) => {
         if ((a | 0) == 0 && (b | 0) == 0) {
             return '0';
@@ -37,5 +37,4 @@ const sum = () => {
 
     const result = add(arr1, arr2);
     print(result);
-};
-sum();
+})();
