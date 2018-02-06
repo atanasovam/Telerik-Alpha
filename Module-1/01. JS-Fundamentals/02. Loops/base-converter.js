@@ -8,28 +8,28 @@ const hexToDecimal = (args) => {
     const dec = parseInt(hex, 16);
     print(dec);
 };
-hexToDecimal();
+// hexToDecimal();
 
 const decToHex = (args) => {
     const dec = gets;
     const hex = dec.toString(16).toUpperCase();
     print(hex);
 };
-decToHex();
+// decToHex();
 
 const decToBin = (args) => {
     const dec = gets;
     const bin = (dec >>> 0).toString(2);
     print(bin);
 };
-decToBin();
+// decToBin();
 
 const binToDec = (args) => {
     const bin = gets;
     const dec = parseInt(bin, 2);
     print(dec);
 };
-binToDec();
+// binToDec();
 
 const binaryToDecimal = (args) => {
     const bin = gets.toString();
@@ -41,7 +41,7 @@ const binaryToDecimal = (args) => {
 
     print(dec);
 };
-binaryToDecimal();
+// binaryToDecimal();
 
 const hexToBin = () => {
     const hex = gets();
@@ -70,6 +70,41 @@ const hexToBin = () => {
         binary += dict[hex[i]];
     }
     print(binary.replace(/^0+(?!\.|$)/, ''));
-    // print('000110100010101100111100010011010101111001101111');
 };
-hexToBin();
+// hexToBin();
+
+const binToHex = () => {
+    let number = gets();
+    const dict = {
+        '0000': '0',
+        '0001': '1',
+        '0010': '2',
+        '0011': '3',
+        '0100': '4',
+        '0101': '5',
+        '0110': '6',
+        '0111': '7',
+        '1000': '8',
+        '1001': '9',
+        '1010': 'A',
+        '1011': 'B',
+        '1100': 'C',
+        '1101': 'D',
+        '1110': 'E',
+        '1111': 'F',
+    };
+
+    let hex = '';
+
+    if (number.length % 4 !== 0) {
+        for (let i = number.length % 4; i < 4; i++) {
+            number = '0' + number;
+        }
+    }
+
+    for (let i = 0; i < number.length; i += 4) {
+        hex += dict[number.substring(i, i + 4)];
+    }
+    print(hex);
+};
+binToHex();
