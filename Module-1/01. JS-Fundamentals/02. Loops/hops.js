@@ -12,6 +12,7 @@ const calculate = (() => {
         } else {
             index = currentIndex - (stepsToMake * (-1));
         }
+
         if (carrotsPath[index][1] === true) {
             return false;
         }
@@ -22,10 +23,7 @@ const calculate = (() => {
         return index;
     };
 
-    let carrotsPath = gets()
-        .split(', ')
-        .map((e) => [+e, false]);
-
+    let carrotsPath = gets().split(', ').map((e) => [+e, false]);
     const directions = +gets();
 
     const directionsTokens = Array.from(
@@ -44,13 +42,9 @@ const calculate = (() => {
         let carrot = 0;
 
         for (const direction of directionsArr) {
-            if (
-                direction >= 0 && carrot + direction < carrotsPath.length
-            ) {
+            if (direction >= 0 && carrot + direction < carrotsPath.length) {
                 carrot = move(direction, d, carrot, true);
-            } else if (
-                direction < 0 && carrot - (direction * (-1)) >= 0
-            ) {
+            } else if (direction < 0 && carrot - (direction * (-1)) >= 0) {
                 carrot = move(direction, d, carrot, false);
             } else {
                 break;
