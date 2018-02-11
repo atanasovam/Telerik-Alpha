@@ -5,12 +5,8 @@ const print = returnedObj.print;
 
 const calulate = () => {
     const calculateExpr = (n, m, p) => {
-        const mod = (f, s) => {
-            return Math.floor(f % s);
-        };
-
         return (n * n + (1 / (m * p)) + 1337) / (n - (128.523123123 * p))
-            + Math.sin(mod(m, 180));
+            + Math.sin(Math.floor(m, 180));
     };
     const [a, b, c] = [+gets(), +gets(), +gets()];
 
