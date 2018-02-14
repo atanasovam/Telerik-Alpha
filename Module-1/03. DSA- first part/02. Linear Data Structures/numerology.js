@@ -4,14 +4,27 @@ const gets = returnedObj.gets;
 const print = returnedObj.print;
 
 const solve = (() => {
-    const tokens = gets().split('').map(Number);
-    const result = [];
+    const makeMagic = (a, b) => (+a + +b) * (+a ^ +b) % 10;
+    const divine = (digits) => {
+        if (digits.length === 1) {
+            digitsCount[digits[0]]++;
+            return;
+        }
 
-    for (let i = 0; i < tokens.length - 1; i++) {
-        const [a, b] = [tokens[i], tokens[i + 1]];
+        for (let i = 1; i < digits.length; i++) {
+            const [a, b] = [digits[i - 1], digits[i]];
 
-        result.push((a + b) * (a ^ b) % 10);
-    }
+            digits.splice(i, 1);
+            digits[i - 1] = makeMagic(a, b);
+            divine(digits);
+            digits[i - 1] = a;
+            digits.splice(i, 0, b);
+        }
+    };
+    const tokens = Array.from(gets());
+    const digitsCount = Array.from({ length: 10 }, (x) => 0);
 
-    print(result);
+    divine(tokens);
+
+    print(digitsCount.join(' '));
 })();
