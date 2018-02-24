@@ -5,18 +5,18 @@ const print = returnedObj.print;
 
 const primeTriangle = (() => {
     const filterNumbers = (n) => {
-        let result = [1];
+        const filtered = [1];
 
         for (let i = 1; i <= n; i += 1) {
             if (isPrime(i)) {
-                result.push(i);
+                filtered.push(i);
             }
         }
-        return result;
+        return filtered;
     };
 
     const isPrime = (num) => {
-        let n = Math.sqrt(num);
+        const n = Math.sqrt(num);
 
         for (let i = 2; i <= n; i++) {
             if (num % i === 0) {
@@ -29,31 +29,31 @@ const primeTriangle = (() => {
         return true;
     };
 
-    let n = +gets();
-    let primeNumbers = filterNumbers(n);
+    const n = +gets();
+    const primeNumbers = filterNumbers(n);
     let lastPrimeNumber = primeNumbers[primeNumbers.length - 1];
 
 
-    let arr = Array.from({ length: primeNumbers.length }, (x) => []);
-    arr[0] = (['1']);
+    const triangle = Array.from({ length: primeNumbers.length }, (x) => []);
+    triangle[0] = (['1']);
 
     let currArr = '';
-    let length = primeNumbers.length - 1;
+    const length = primeNumbers.length - 1;
 
     for (let i = length; i >= 1; i -= 1) {
         for (let j = 1; j <= lastPrimeNumber; j += 1) {
-            if (isPrime(j) || j == 1) {
+            if (isPrime(j) || j === 1) {
                 currArr += '1';
             } else {
                 currArr += '0';
             }
         }
 
-        arr[i].push(currArr);
+        triangle[i].push(currArr);
         primeNumbers.pop();
         lastPrimeNumber = primeNumbers[primeNumbers.length - 1];
         currArr = '';
     }
 
-    print(arr.join('\n'));
+    print(triangle.join('\n'));
 })();
