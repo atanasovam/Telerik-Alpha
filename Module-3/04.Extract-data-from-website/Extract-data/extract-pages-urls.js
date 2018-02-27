@@ -10,12 +10,9 @@ const extractUrls = async (url) => {
     const dom = await JSDOM.fromURL(url);
     const $ = $init(dom.window);
 
-    const pageLinks = [...$('.paging a')];
-    const pages = pageLinks
-        .map((link) => $(link))
-        .map(($link) => 'http://www.technopolis.bg/' + $link.attr('href'));
-
-    return [...new Set(pages)];
+    const pageLinksSelector = '.paging a';
+    const pages = Array.from($(pageLinksSelector));
+    return pages.map((link) => link.href);
 };
 
 module.exports = {
