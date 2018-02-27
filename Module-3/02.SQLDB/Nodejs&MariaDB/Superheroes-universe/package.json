@@ -1,0 +1,19 @@
+{
+  "name": "Superheroes-universe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "add-migrations": "node ./node_modules/sequelize-auto-migrations/bin/makemigration.js",
+    "migrate": "./node_modules/.bin/sequelize db:migrate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql2": "^1.5.2",
+    "sequelize": "^4.34.0",
+    "sequelize-auto-migrations": "^1.0.2"
+  }
+}
