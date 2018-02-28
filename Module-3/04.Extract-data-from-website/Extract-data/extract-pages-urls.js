@@ -1,20 +1,14 @@
-/* globals Set */
-
 const {
-    JSDOM,
-} = require('jsdom');
+    extractUrls,
+} = require('../extract-data/extract-urls');
 
-const $init = require('jquery');
-
-const extractUrls = async (url) => {
-    const dom = await JSDOM.fromURL(url);
-    const $ = $init(dom.window);
-
+const extractPagesUrls = async (url) => {
     const pageLinksSelector = '.paging a';
-    const pages = Array.from($(pageLinksSelector));
-    return pages.map((link) => link.href);
+
+    const pagesList = await extractUrls(url, pageLinksSelector);
+    return pagesList;
 };
 
 module.exports = {
-    extractUrls,
+    extractPagesUrls,
 };
