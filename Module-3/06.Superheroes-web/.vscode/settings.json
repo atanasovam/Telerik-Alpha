@@ -1,0 +1,4 @@
+{
+    "key": "ctrl+shift+f",
+    "command": "pugbeautify.execute"
+}

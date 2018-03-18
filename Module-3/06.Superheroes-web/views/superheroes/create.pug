@@ -1,0 +1,15 @@
+form(action="/superheroes",method="POST")
+    input(type="text", name="name", placeholder="Enter name...")
+    input(type="password", name="secretIdentity", placeholder="Enter secret identity...")
+    select(name="aligmnet")
+        option(value="good")
+            | Good
+        option(value="bad")
+            | Bad
+    select(multiple, name="aligmnet2")
+        option(value="good")
+            | Good
+        option(value="bad")
+            | Bad
+    button
+        | Save
