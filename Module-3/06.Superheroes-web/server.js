@@ -1,3 +1,6 @@
+/* globals __dirname */
+const path = require('path');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -14,6 +17,8 @@ app.use(morgan('combined', {
     skip: (req, res) => res.statusCode > 400,
 }));
 
+app.use('/static', express.static(path.join(__dirname, 'public')));
+
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
@@ -24,7 +29,6 @@ app.get('/', (req, res) => {
 
     res.render('home', model);
 });
-
 
 app.get('/superheroes', (req, res) => {
     const superheroes = data.getAll();
