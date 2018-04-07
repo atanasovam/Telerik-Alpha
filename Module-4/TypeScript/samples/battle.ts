@@ -88,7 +88,7 @@ class Battle {
         Battle._counter++;
     }
 
-    public calculateResult(matrix): number {
+    public calculateResult(matrix): number { 
         let count = 0;
 
         matrix.forEach((line) => {

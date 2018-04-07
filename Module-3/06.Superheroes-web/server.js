@@ -23,18 +23,18 @@ app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
     const superheroes = data.getAll();
-    const model = {
+    const content = {
         superheroes,
     };
 
-    res.render('home', model);
+    res.render('home', content);
 });
 
 app.get('/superheroes', (req, res) => {
     const superheroes = data.getAll();
-    const model = { superheroes };
+    const content = { superheroes };
 
-    res.render('superheroes/list', model);
+    res.render('superheroes/list', content);
 });
 
 app.get('/superheroes/create', (req, res) => {
@@ -54,19 +54,19 @@ app.get('/superheroes/:id', (req, res) => {
 
     const superhero = data.getById(+id);
 
-    const model = {
+    const content = {
         superhero,
     };
 
-    res.render('superheroes/details', model);
+    res.render('superheroes/details', content);
 });
 
 app.get('/:name', (req, res) => {
     const name = req.params.name;
 
-    const model = { name };
+    const content = { name };
 
-    res.render('say-name', model);
+    res.render('say-name', content);
 });
 
 app.listen(3003);

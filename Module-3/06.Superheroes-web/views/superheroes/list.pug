@@ -1,7 +1,7 @@
 extends ../_shared/master
 
 block content
-    ul#superheroes-list
+    ul#superheroes-list.list
         each hero in superheroes
             li
                 a(href="/superheroes/" +  hero.id)
