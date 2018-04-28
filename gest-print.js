@@ -11,20 +11,19 @@ const test = () => {
     };
 
     const test = [
-        '5 3',
-'Gosho Tosho Penka Miro Stanka',
-        'Miro Gosho',
-        'Gosho Stanka',
-        'Stanka Miro',
+        '6',
+        '7',
+        '3',
+        '4',
     ];
+
     // const test = [
-    //     '7 4',
-    //     'Emo Misho Ivanka Ginka Vancho Stancho Sashka',
-    //     'Emo Misho',
-    //     'Misho Emo',
-    //     'Misho Sashka',
-    //     'Sashka Stancho',
+    //     '5',
+    //     '5',
+    //     '2',
+    //     '2',
     // ];
+
     const gets = this.gets || getGets(test);
     const print = this.print || console.log;
     // console.log(`params: ${test} from gets-print.js`);

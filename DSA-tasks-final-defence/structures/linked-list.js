@@ -123,7 +123,7 @@ class LinkedList {
         return result;
     }
 
-    * [Symbol.iterator]() {
+    *[Symbol.iterator]() {
         let nextNode = this._first;
         while (nextNode !== null) {
             yield nextNode.value;
@@ -155,4 +155,7 @@ class LinkedList {
     }
 }
 
-module.exports = LinkedList;
+module.exports = {
+    LinkedList,
+    ListNode,
+};
