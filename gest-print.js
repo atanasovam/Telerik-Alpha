@@ -11,10 +11,9 @@ const test = () => {
     };
 
     const test = [
-        '6',
-        '7',
         '3',
-        '4',
+        'baca',
+        '2',
     ];
 
     // const test = [
